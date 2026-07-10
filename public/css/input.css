@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+/* ============================================ */
+/* Font-Definitionen (Nohemi, self-hosted)       */
+/* ============================================ */
+@font-face {
+    font-family: 'Nohemi';
+    src: url('/fonts/Nohemi-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('/fonts/Nohemi-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('/fonts/Nohemi-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('/fonts/Nohemi-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('/fonts/Nohemi-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('/fonts/Nohemi-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('/fonts/Nohemi-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('/fonts/Nohemi-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('/fonts/Nohemi-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ============================================ */
+/* Theme: Corporate-Design-Tokens                */
+/* ============================================ */
+@theme {
+    /* --- Farben als semantische Namen --- */
+    --color-primary: #FD740D;      /* Orange – Haupt-Akzentfarbe */
+    --color-secondary: #000000;    /* Schwarz – Text/Kontrast */
+    --color-neutral: #F2F2F2;      /* Hellgrau – Hintergrund */
+    --color-danger: #F44336;
+    --color-charcole: #191919;
+
+    /* Optional abgestufte Varianten von primary (nützlich für Hover/Active-States) */
+    --color-primary-light: #FE9A4D;
+    --color-primary-dark: #C95C0A;
+    --color-neutral-dark: #dedede;
+
+    /* --- Font --- */
+    /* font-sans überschreiben = Nohemi wird die STANDARD-Schrift.
+       Du musst dann nirgends mehr "font-nohemi" schreiben,
+       jedes Element ohne andere Angabe nutzt automatisch Nohemi. */
+    --font-sans: 'Nohemi', ui-sans-serif, system-ui, sans-serif;
+
+    /* --- Sonstige Design-Tokens --- */
+    --radius-card: 0.75rem;
+}
+
+/* ============================================ */
+/* Globale Basis-Stile                           */
+/* ============================================ */
+@layer base {
+    body {
+        background-color: var(--color-neutral);
+        color: var(--color-secondary);
+    }
+}
+/* ============================================ */
+/* Globale Basis-Stile                           */
+/* ============================================ */
+@layer base {
+    body {
+        background-color: var(--color-neutral);
+        color: var(--color-secondary);
+    }
+
+    h1 {
+        font-size: 2.75rem;
+        font-weight: 800; /* ExtraBold */
+        line-height: 1.1;
+        color: var(--color-secondary);
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 2.125rem;
+        font-weight: 700; /* Bold */
+        line-height: 1.2;
+        color: var(--color-secondary);
+        margin-bottom: 0.875rem;
+    }
+
+    h3 {
+        font-size: 1.625rem;
+        font-weight: 600; /* SemiBold */
+        line-height: 1.3;
+        color: var(--color-secondary);
+        margin-bottom: 0.75rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+        font-weight: 600; /* SemiBold */
+        line-height: 1.4;
+        color: var(--color-secondary);
+        margin-bottom: 0.5rem;
+    }
+
+    h5 {
+        font-size: 1.0625rem;
+        font-weight: 500; /* Medium */
+        line-height: 1.4;
+        color: var(--color-secondary);
+        margin-bottom: 0.5rem;
+    }
+
+    h6 {
+        font-size: 0.9375rem;
+        font-weight: 500; /* Medium */
+        line-height: 1.4;
+        color: var(--color-secondary);
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    p {
+        font-size: 1rem;
+        font-weight: 400; /* Regular */
+        line-height: 1.6;
+        color: var(--color-secondary);
+        margin-bottom: 1rem;
+    }
+
+    a {
+        color: var(--color-primary);
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: var(--color-primary-dark);
+        text-decoration: underline;
+    }
+
+    strong, b {
+        font-weight: 700; /* Bold */
+    }
+
+    small {
+        font-size: 0.875rem;
+        color: var(--color-secondary);
+        opacity: 0.7;
+    }
+}
+@layer base {
+    input, textarea, select, button {
+        outline: none;
+        border-bottom: 2px solid var(--color-neutral);
+    }
+
+    input:focus, textarea:focus, select:focus {
+        transition: all;
+        transition-duration: 0.6s;
+        outline: none;
+        border-bottom: 2px solid var(--color-charcole);
+    }
+}
