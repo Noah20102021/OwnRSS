@@ -4,7 +4,7 @@ const { requireAuth } = require('../middleware/requireAuth');
 
 /* GET home page. */
 router.get('/', requireAuth, function(req, res, next) {
-  res.render('dashboard', { title: 'Dashboard', user: req.user });
+  res.render('dashboard', { path: 'dashboard', title: 'Dashboard', user: req.user });
 });
 
 module.exports = router;

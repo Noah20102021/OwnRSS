@@ -199,7 +199,7 @@
     }
 }
 @layer base {
-    input, textarea, select, button {
+    input, textarea, select {
         outline: none;
         border-bottom: 2px solid var(--color-neutral);
     }
@@ -209,5 +209,8 @@
         transition-duration: 0.6s;
         outline: none;
         border-bottom: 2px solid var(--color-charcole);
+    }
+    .navLink:hover {
+        text-decoration: none; /* Unterstreichung verschwindet beim Hovern */
     }
 }

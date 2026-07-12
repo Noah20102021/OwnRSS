@@ -22,16 +22,76 @@
     />
 </head>
 
-<body class="bg-gradient-to-br from-neutral to-primary/10">
-<div class="h-dvh grid grid-cols-1">
-    <div class="col-span-1 m-10 h-full flex items-center justify-center">
-        <div class="flex flex-col items-center justify-center bg-white rounded-2xl shadow-xl p-8 w-full h-full text-slate-800">
-            <h1>Hi, <%= user.name%></h1>
-            <p>Your email: <%= user.email%></p>
+<body class="bg-gradient-to-br from-neutral to-primary/35">
+<div class="h-dvh flex">
+
+    <!-- Sidebar IST der linke Gap -->
+    <aside id="sidebar" class="transition-all duration-300 ease-in-out w-10 shrink-0 flex flex-col gap-8 overflow-x-hidden">
+
+        <button id="sidebarToggle" class="w-full h-10 cursor-pointer mt-3 flex items-center gap-3.5 shrink-0 group select-none">
+
+            <div class="w-10 h-10 relative shrink-0 flex items-center justify-center">
+                <img src="/images/logos/OwnRSS_Logo_Mark_Only.png" alt="Logo" class="w-10 h-10 absolute transition-opacity duration-200 group-hover:opacity-0">
+                <i id="extendIcon" class="ph ph-arrow-line-right text-2xl  absolute opacity-0 transition-opacity duration-200 group-hover:opacity-100"></i>
+            </div>
+
+            <span class="mt-1 ml-0 pl-0 sidebar-label text-3xl hidden font-bold whitespace-nowrap ">OwnRSS</span>
+        </button>
+
+        <nav id="navElement" class="flex flex-col w-full">
+            <a href="/dashboard"
+               class="flex navLink items-center gap-4 text-slate-800 w-full h-10 overflow-hidden hover:bg-slate-100 rounded-lg <%= path === 'dashboard' ? 'bg-slate-100' : '' %>">
+                <div class="w-10 h-10 flex items-center justify-center shrink-0">
+                    <i class="ph ph-house text-xl"></i>
+                </div>
+                <span class="sidebar-label text-xl font-normal hidden whitespace-nowrap">Dashboard</span>
+            </a>
+            <a href="/feeds" class="flex navLink <%= path === 'feeds' ? 'bg-slate-100' : '' %> items-center gap-4 text-slate-800 w-full h-10 overflow-hidden hover:bg-slate-100 rounded-lg">
+                <div class="w-10 h-10 flex items-center justify-center shrink-0">
+                    <i class="ph ph-chat-circle text-xl"></i>
+                </div>
+                <span class="sidebar-label text-xl font-normal hidden whitespace-nowrap">Feeds</span>
+            </a>
+        </nav>
+    </aside>
+
+
+
+
+
+    <!-- Rechte Spalte: Topbar (IST der obere Gap) + Karte, rechts/unten per Padding -->
+    <div class="flex-1 flex flex-col pr-5 pb-5 min-w-0">
+        <div class="flex justify-end items-center h-15 shrink-0">
+            <button class="w-10 h-10 flex items-center justify-center">
+                <img src="<%= user.image %>" class="w-10 h-10 mr-2 rounded-full">
+            </button>
+        </div>
+
+        <div class="flex-1 flex flex-col  items-center justify-center bg-white rounded-2xl shadow-xl p-8 text-slate-800 min-h-0">
+            <h1>Hi, <%= user.name %></h1>
+            <p>Your email: <%= user.email %></p>
             <p>Your role: <%= user.role.name %></p>
         </div>
     </div>
+
 </div>
+<script>
+    document.getElementById('sidebarToggle').addEventListener('click', function () {
+        const sidebar = document.getElementById('sidebar');
+        const labels = document.querySelectorAll('.sidebar-label');
+        const extendIcon = document.getElementById('extendIcon')
+
+        // Nur noch die Breite der Sidebar toggeln
+        sidebar.classList.toggle('w-10');
+        sidebar.classList.toggle('w-56');
+
+        extendIcon.classList.toggle('ph-arrow-line-left')
+        extendIcon.classList.toggle('ph-arrow-line-right')
+
+        // Die Texte ein- bzw. ausblenden
+        labels.forEach(label => label.classList.toggle('hidden'));
+    });
+</script>
 </body>
 
 </html>
