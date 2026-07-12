@@ -5,13 +5,19 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "build:css": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch"
+    "build:css": "npx @tailwindcss/cli -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "db:prepare": "node scripts/select-schema.js",
+    "db:migrate": "npm run db:prepare && prisma migrate dev",
+    "db:generate": "npm run db:prepare && prisma generate",
+    "create-user": "node scripts/create-user.js"
   },
   "dependencies": {
-    "@prisma/client": "^7.8.0",
+    "@prisma/client": "^6.19.3",
+    "better-auth": "^1.6.23",
     "better-sqlite3": "^12.11.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^17.4.2",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
@@ -22,7 +28,7 @@
     "@tailwindcss/cli": "^4.3.2",
     "@tailwindcss/postcss": "^4.3.2",
     "postcss": "^8.5.16",
-    "prisma": "^7.8.0",
+    "prisma": "^6.19.3",
     "tailwindcss": "^4.3.2"
   }
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/output.css'/>
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg"/>
+    <link rel="shortcut icon" href="/favicon/favicon.ico"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"/>
+    <meta name="apple-mobile-web-app-title" content="OwnRSS"/>
+    <link rel="manifest" href="/favicon/site.webmanifest"/>
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+</head>
+
+<body class="bg-gradient-to-br from-neutral to-primary/10">
+<div class="h-dvh grid grid-cols-1">
+    <div class="col-span-1 m-10 h-full flex items-center justify-center">
+        <div class="flex flex-col items-center justify-center bg-white rounded-2xl shadow-xl p-8 w-full h-full text-slate-800">
+            <h1>Hi, <%= user.name%></h1>
+            <p>Your email: <%= user.email%></p>
+            <p>Your role: <%= user.role.name %></p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
