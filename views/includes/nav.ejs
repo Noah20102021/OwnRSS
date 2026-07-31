@@ -1,0 +1,30 @@
+<aside id="sidebar" class="transition-all duration-300 ease-in-out w-14 shrink-0 flex flex-col gap-8 overflow-x-hidden">
+
+    <button id="sidebarToggle" class="w-full h-10 ml-2 cursor-pointer mt-3 flex items-center gap-3.5 shrink-0 group select-none">
+
+        <div class="w-10 h-10 relative shrink-0 flex items-center justify-center">
+            <img src="/images/logos/OwnRSS_Logo_Mark_Only.png" alt="Logo" class="w-10 h-10 absolute transition-opacity duration-200 group-hover:opacity-0">
+            <i id="extendIcon" class="ph ph-arrow-line-right text-2xl  absolute opacity-0 transition-opacity duration-200 group-hover:opacity-100"></i>
+        </div>
+
+        <span class="mt-1 ml-0 pl-0 sidebar-label text-3xl hidden font-bold whitespace-nowrap ">OwnRSS</span>
+    </button>
+
+    <nav id="navElement" class="flex flex-col w-full px-2 gap-1">
+        <a href="/dashboard"
+           class="flex navLink items-center gap-4 text-slate-800 w-full h-10 overflow-hidden hover:bg-gray-200 rounded-lg">
+            <div class="w-10 h-10 flex items-center justify-center shrink-0">
+                <i class="ph ph-house text-xl <%= path === 'dashboard' ? 'ph-fill' : '' %>"></i>
+            </div>
+            <span class="sidebar-label text-xl font-normal hidden whitespace-nowrap">Dashboard</span>
+        </a>
+
+        <a href="/feeds"
+           class="flex navLink  items-center gap-4 text-slate-800 w-full h-10 overflow-hidden hover:bg-gray-200 rounded-lg">
+            <div class="w-10 h-10 flex items-center justify-center shrink-0">
+                <i class="ph ph-chat-circle text-xl <%= path === 'feeds' ? 'ph-fill' : '' %>"></i>
+            </div>
+            <span class="sidebar-label text-xl font-normal hidden whitespace-nowrap">Feeds</span>
+        </a>
+    </nav>
+</aside>
